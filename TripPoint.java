@@ -34,7 +34,37 @@
 		public static ArrayList<TripPoint> getTrip() {
 	        return new ArrayList<TripPoint>(trip);
 	    }
+ public static void readFile(String filename) {
+	        trip.clear();
+	        try {
+	            Scanner scanner = new Scanner(new File(filename));
+	            
+	            
+	            if (scanner.hasNextLine()) {
+	                scanner.nextLine();
+	            }
 
+	            while (scanner.hasNextLine()) {
+	                String line = scanner.nextLine().trim();
+	                if (line.isEmpty()) {
+	                    continue;
+	                }
+	                String[] values = line.split(",");
+	                if (values.length < 3) {
+	                    continue;
+	                }
+	                int time = Integer.parseInt(values[0].trim());
+	                double lat = Double.parseDouble(values[1].trim());
+	                double lon = Double.parseDouble(values[2].trim());
+
+	                TripPoint point = new TripPoint(time, lat, lon);
+	                trip.add(point);
+	            }
+	            scanner.close();
+	        } catch (FileNotFoundException e) {
+	            System.out.println("File not found.");
+	        }
+	    }
 
 	   
 	    
