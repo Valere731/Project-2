@@ -65,7 +65,16 @@
 	            System.out.println("File not found.");
 	        }
 	    }
-
+public static double totalTime() {
+	        if (trip.size() <= 1) {
+	            return 0.0;
+	        }
+	        TripPoint first = trip.get(0);
+	        TripPoint last = trip.get(trip.size() - 1);
+	        int startTime = first.getTime();
+	        int endTime = last.getTime();
+	        return (endTime - startTime) / 60.0;
+	    }
 	   
 	    
 	      
