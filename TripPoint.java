@@ -162,6 +162,14 @@ public static double totalTime() {
 	        }
 	        return total;
 	    }
+		    /**
+     * Calculates average speed between two points in km/h.
+     * Works regardless of point order.
+     *
+     * @param a the first GPS point
+     * @param b the second GPS point
+     * @return average speed in km/h, 0 if time difference is 0
+     */
 		public static double avgSpeed(TripPoint a, TripPoint b) {
 	        double distance = haversineDistance(a, b);
 	        double timeDifference = Math.abs(a.getTime() - b.getTime()) / 60.0;
@@ -172,6 +180,7 @@ public static double totalTime() {
 	        return distance / timeDifference;
 	    
 	    }
+	}
 
 	      
 	
