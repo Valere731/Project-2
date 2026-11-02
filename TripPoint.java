@@ -95,6 +95,19 @@ public static double totalTime() {
 
 	        return radius * angle;
 	    }
+		 public static double totalDistance() {
+	        if (trip.size() < 2) {
+	            return 0.0;
+	        }
+	        double total = 0.0;
+	        for (int i = 1; i < trip.size(); i++) {
+	            TripPoint previous = trip.get(i - 1);
+	            TripPoint current = trip.get(i);
+	            total += haversineDistance(previous, current);
+	        }
+	        return total;
+	    }
+
 	      
 	}
 
