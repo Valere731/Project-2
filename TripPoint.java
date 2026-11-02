@@ -76,7 +76,25 @@ public static double totalTime() {
 	        return (endTime - startTime) / 60.0;
 	    }
 	   
-	    
+	      public static double haversineDistance(TripPoint a, TripPoint b) {
+	        double radius = 6371.0;
+
+	        double lat1 = Math.toRadians(a.getLat());
+	        double lat2 = Math.toRadians(b.getLat());
+	        double lon1 = Math.toRadians(a.getLon());
+	        double lon2 = Math.toRadians(b.getLon());
+
+	        double dLat = lat2 - lat1;
+	        double dLon = lon2 - lon1;
+
+	        double h = Math.pow(Math.sin(dLat / 2), 2)
+	                + Math.cos(lat1) * Math.cos(lat2)
+	                * Math.pow(Math.sin(dLon / 2), 2);
+
+	        double angle = 2 * Math.asin(Math.sqrt(Math.min(1.0, Math.max(0.0, h))));
+
+	        return radius * angle;
+	    }
 	      
 	}
 
