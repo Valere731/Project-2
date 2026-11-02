@@ -31,6 +31,10 @@
 	    public double getLon() {
 	        return lon;
 	    }
+		public static ArrayList<TripPoint> getTrip() {
+	        return new ArrayList<TripPoint>(trip);
+	    }
+
 
 	   
 	    
